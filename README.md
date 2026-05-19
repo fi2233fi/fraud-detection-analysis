@@ -58,18 +58,20 @@ Flagging by transaction amount caught 18.5% of fraud cases and generated
 31,904 alerts in the process. That's a 0.3% precision rate — basically 
 noise. Any fraud team working off those alerts would be buried.
 
-**Behavioral features are the actual signal**
-V11 (r=0.155) and V4 (r=0.133) correlated most strongly with fraud. 
-V17 (r=-0.326) and V14 (r=-0.303) were the strongest negative signals. 
-These patterns are harder for fraudsters to game than a simple 
-dollar threshold.
+**Behavioral patterns are the actual signal**
+The strongest fraud indicators came from behavioral transaction features, 
+not transaction amount. These patterns captured how a purchase was made 
+rather than how much was spent, and they separated fraud from legitimate 
+transactions far more cleanly than any dollar threshold.
 
 ---
 
 ## Recommendations
 
-- Drop amount-only flagging rules — they're not working
-- Prioritize V11, V4, V17, V14 as primary detection signals
+- Drop amount-only flagging rules — they are not working
+- Shift focus to behavioral transaction patterns rather than amount 
+  thresholds — the data shows these are far more predictive of fraud 
+  than how much was spent
 - Build a tiered alert system so low-confidence flags get monitored 
   passively instead of going straight to review
 - Flag accounts with 3+ transactions under $10 within an hour as 
