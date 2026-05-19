@@ -9,9 +9,9 @@ fraud patterns and evaluate detection methods.
 
 Working in healthcare billing, I spent a lot of time looking at claim 
 patterns — what gets flagged, what slips through, and why simple rules 
-miss things that are obvious in the data. I wanted to apply that same 
-thinking to financial fraud and see where amount-based detection actually 
-breaks down.
+miss things that are obvious in the data. I wanted to see if those same 
+instincts applied to financial fraud and see where amount-based 
+detection actually breaks down.
 
 It breaks down a lot.
 
@@ -69,11 +69,11 @@ dollar threshold.
 ## Recommendations
 
 - Drop amount-only flagging rules — they're not working
-- Prioritize V11, V4, V17, V14 as primary detection signals  
+- Prioritize V11, V4, V17, V14 as primary detection signals
 - Build a tiered alert system so low-confidence flags get monitored 
   passively instead of going straight to review
 - Flag accounts with 3+ transactions under $10 within an hour as 
-  potential card testing
+  potential card testing activity
 - Any future ML model needs rebalanced training data — 0.17% fraud 
   rate will produce a model that predicts legitimate every time
 
@@ -86,3 +86,9 @@ dollar threshold.
 ![Anomaly Detection](03_anomaly_detection.png)
 ![Correlation Analysis](04_correlation_analysis.png)
 ![Summary](05_summary.png)
+
+---
+
+*The same pattern recognition logic applies directly to healthcare 
+claims, insurance billing, and any high-volume transaction environment 
+where bad actors learn the rules and adapt to them.*
