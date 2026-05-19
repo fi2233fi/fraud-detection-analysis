@@ -1,0 +1,70 @@
+
+================================================================
+CREDIT CARD FRAUD DETECTION - BUSINESS RECOMMENDATIONS
+Analyst: Fatima Iqbal
+Dataset: 284,807 European cardholder transactions
+================================================================
+
+EXECUTIVE SUMMARY
+-----------------
+Analysis of 284,807 transactions identified 492 confirmed fraud
+cases (0.173% fraud rate). Key finding: fraudsters deliberately
+avoid triggering amount-based alerts, making behavioral pattern
+detection essential for effective fraud prevention.
+
+KEY FINDINGS
+------------
+1. SMALL TRANSACTION FRAUD IS THE DOMINANT PATTERN
+   73.6% of fraudulent transactions were under $100.
+   Median fraud amount was $9.25 vs $22.00 for legitimate
+   transactions. This indicates systematic card testing behavior
+   where stolen credentials are validated with micro-purchases
+   before larger attempts.
+
+2. AMOUNT-BASED RULES ALONE ARE INSUFFICIENT
+   Statistical flagging based on transaction amount caught only
+   18.5% of fraud cases (91 of 492). Rules that flag unusual
+   amounts will miss 4 out of 5 fraud cases entirely.
+
+3. BEHAVIORAL FEATURES ARE THE STRONGEST SIGNALS
+   Features V11 (r=0.155) and V4 (r=0.133) showed the strongest
+   positive correlation with fraud. Features V17 (r=-0.326) and
+   V14 (r=-0.303) showed the strongest negative correlation.
+   These behavioral patterns are far more predictive than
+   transaction amount alone.
+
+4. HIGH FALSE POSITIVE RISK IN CURRENT RULE-BASED SYSTEMS
+   Amount-based flagging generated 31,904 alerts but only 0.3%
+   were actual fraud. This precision rate would overwhelm fraud
+   review teams and create poor customer experience through
+   unnecessary transaction blocks.
+
+RECOMMENDATIONS
+---------------
+1. RETIRE AMOUNT-ONLY FRAUD RULES
+   Replace or supplement any existing rules that flag solely
+   based on transaction size. The data shows fraudsters have
+   adapted to stay below common thresholds.
+
+2. PRIORITIZE BEHAVIORAL FEATURE MONITORING
+   Invest in monitoring V11, V4, V17, and V14 as primary fraud
+   signals. These features capture transactional behavior that
+   is harder for fraudsters to manipulate than simple amounts.
+
+3. IMPLEMENT A TIERED ALERT SYSTEM
+   Low risk: Amount anomaly only - monitor passively
+   Medium risk: 1-2 behavioral features flagged - soft decline
+   High risk: 3+ behavioral features flagged - immediate review
+
+4. BUILD A CARD TESTING DETECTION RULE
+   Given 73.6% of fraud occurs under $100, create a specific
+   rule that flags accounts with 3+ transactions under $10
+   within a 1-hour window as potential card testing activity.
+
+5. REBALANCE TRAINING DATA FOR FUTURE MODELING
+   The 0.173% fraud rate creates significant class imbalance.
+   Any future machine learning model should use SMOTE or
+   weighted sampling to avoid models that simply predict
+   legitimate for every transaction.
+
+================================================================
